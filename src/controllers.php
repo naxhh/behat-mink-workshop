@@ -43,6 +43,21 @@ $app->get('/kitty/{name}', function ($name) use ($app) {
 ->bind('profile')
 ;
 
+$app->get('/kitty/{name}/society', function ($name) use ($app) {
+    $user = array( 'username' => 'kitty69' );
+    $obj = new \Kitty\DataSource;
+    $kitty = $obj->get($name);
+
+    if (!$kitty || $name != $user['username'])
+    {
+        throw new Exception('404');
+    }
+
+    return $app['twig']->render('society.twig', array('kitty' => $kitty));
+})
+->bind('society')
+;
+
 $app->get('/kitty/{name}/miau', function ($name) use($app) {
     $user = array( 'username' => 'kitty69' );
     $obj = new \Kitty\DataSource;

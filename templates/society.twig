@@ -1,0 +1,27 @@
+{% extends "layout.twig" %}
+
+{% block custom_css %}
+<link href="/css/profile.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <div id="profile-brief" class="page-header">
+        <img src="{{ kitty.img }}" />
+
+        <h1>{{ kitty.name }}</h1>
+        <p class="lead">{{ kitty.description }}</p>
+    </div>
+
+    <div id="interactions">
+    {% for interaction,interactions in kitty.interactions %}
+        <ul id="{{ interaction }}">
+        {% for kitty, time in interactions %}
+            <li>
+                <a href="/kitty/{{ kitty }}">{{ kitty }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    </div>
+
+{% endblock %}

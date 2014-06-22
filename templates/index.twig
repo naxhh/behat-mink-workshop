@@ -4,15 +4,17 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Miau! {{ user.name }}</h1>
-            <p>
-            {% if user.interactions.miau is defined %}
-                {{ user.interactions.miau | length }} kitties miau on you!
-            {% endif %}
-            {% if user.interactions.prrr is defined %}
-                {# We can put here .miau or .fzzz or anything else an make it wrong :D #}
-                {{ user.interactions.prrr | length }} kitties are looking for something else with you.
-            {% endif %}
-            </p>
+            <a href="/kitty/{{ user.name }}/society">
+                <p>
+                {% if user.interactions.miau is defined %}
+                    {{ user.interactions.miau | length }} kitties miau on you!
+                {% endif %}
+                {% if user.interactions.prrr is defined %}
+                    {# We can put here .miau or .fzzz or anything else an make it wrong :D #}
+                    {{ user.interactions.prrr | length }} kitties are looking for something else with you.
+                {% endif %}
+                </p>
+            </a>
         </div>
     </div>
 
