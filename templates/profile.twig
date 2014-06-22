@@ -1,0 +1,30 @@
+{% extends "layout.twig" %}
+
+{% block custom_css %}
+<link href="/css/profile.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+	<div id="profile-brief" class="page-header">
+        <img src="{{ kitty.img }}" />
+
+        <h1>{{ kitty.name }}</h1>
+        <p class="lead">{{ kitty.description }}</p>
+
+        <div id="user-actions">
+            <a href="/kitty/{{ kitty.name }}/miau">Miau!</a>
+            <a href="/kitty/{{ kitty.name }}/prrr">Prrr..</a>
+            <a href="/kitty/{{ kitty.name }}/fzzzz">fzzzz!!!</a>
+        </div>
+
+	</div>
+
+    <ul id="gallery">
+    {% for image in kitty.gallery %}
+        <li>
+            <img src="{{ image.img }}" height="300px" />
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

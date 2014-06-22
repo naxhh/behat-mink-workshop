@@ -1,0 +1,37 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Miau! {{ user.name }}</h1>
+            <p>
+            {% if user.interactions.miau is defined %}
+                {{ user.interactions.miau | length }} kitties miau on you!
+            {% endif %}
+            {% if user.interactions.prrr is defined %}
+                {# We can put here .miau or .fzzz or anything else an make it wrong :D #}
+                {{ user.interactions.prrr | length }} kitties are looking for something else with you.
+            {% endif %}
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+    {% for kitty in kitties %}
+        <div class="col-md-4">
+            <h2>
+                <a href="/kitty/{{ kitty.name }}">{{ kitty.name }}</a>
+            </h2>
+            <p>
+                <img src="{{ kitty.img }}" width="150px" />
+            </p>
+            <p>{{ kitty.description }}</p>
+        </div>
+
+        {% if loop.index % 3 == 0 %}
+        </div><div class="row">
+        {% endif %}
+    {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{
+    "kitty69": {
+        "name": "kitty69",
+        "description": "",
+        "img": "",
+        "gallery": []
+    },
+    "catLover": {
+        "name": "catLover",
+        "description": "I love little cats, the little ones are the beezzz",
+        "img": "http://explosionhub.com/wp-content/uploads/2012/07/1562-cute-little-cat.jpg",
+        "gallery": [
+            {
+                "img": "http://explosionhub.com/wp-content/uploads/2012/07/1562-cute-little-cat.jpg"
+            },
+            {
+                "img": "http://web.nchu.edu.tw/~stshiue/cute5.jpg"
+            }
+        ]
+    },
+    "bigNails": {
+        "name": "bigNails",
+        "description": "I'm an exotic cat, you can tell that from my two colored eyes.",
+        "img": "http://upload.wikimedia.org/wikipedia/commons/6/69/June_odd-eyed-cat_cropped.jpg",
+        "gallery": []
+    },
+    "withoutMaster": {
+        "name": "withoutMaster",
+        "description": "",
+        "img": "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/10/30/1383128094134/248b4f05-05f0-449b-9a23-59b82dbc40a3-460x276.jpeg",
+        "gallery": []
+    },
+    "friendlyKitty12": {
+        "name": "friendlyKitty12",
+        "description": "",
+        "img": "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/10/30/1383128094134/248b4f05-05f0-449b-9a23-59b82dbc40a3-460x276.jpeg",
+        "gallery": []
+    }
+}
