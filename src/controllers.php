@@ -97,3 +97,40 @@ $app->get('/kitty/{name}/fzzzz', function($name) use($app) {
 })
 ->bind('fzzzz') //setting here prrr makes prrr url not work :D
 ;
+
+// API SYSTEM!
+$app->get('/api/cats', function() use($app) {
+    $data_soruce = new \Kitty\DataSource;
+    $kitties = $data_soruce->getList();
+
+    return $app->json($kitties);
+})
+;
+
+$app->get('/api/cats/{name}', function($name) use($app) {
+    $data_soruce = new \Kitty\DataSource;
+    $kitty = $data_soruce->get($name);
+    $return_code = 200;
+
+    if (!$kitty)
+    {
+        $kitty = array();
+        $return_code = 404;
+    }
+
+    return $app->json($kitty, $return_code);
+})
+;
+
+$app->get('/api/cats/{name}/images', function($name) use($app) {
+    $data_soruce = new \Kitty\DataSource;
+    $kitty = $data_soruce->get($name);
+
+    if (!$kitty)
+    {
+        return $app->json(array(), 404);
+    }
+
+    return $app->json($kitty['gallery']);
+})
+;
