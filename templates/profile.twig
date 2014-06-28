@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block content %}
+    <div id="messages" class="hidden alert">
+        <div class="close">x</div>
+        <div id="msg"></div>
+    </div>
 	<div id="profile-brief" class="page-header">
         <img src="{{ kitty.img }}" />
 
@@ -12,9 +16,9 @@
         <p class="lead">{{ kitty.description }}</p>
 
         <div id="user-actions">
-            <a href="/kitty/{{ kitty.name }}/miau">Miau!</a>
-            <a href="/kitty/{{ kitty.name }}/prrr">Prrr..</a>
-            <a href="/kitty/{{ kitty.name }}/fzzzz">fzzzz!!!</a>
+            <a href="#" data-url="/kitty/{{ kitty.name }}/miau" >Miau!</a>
+            <a href="#" data-url="/kitty/{{ kitty.name }}/prrr" >Prrr..</a>
+            <a href="#" data-url="/kitty/{{ kitty.name }}/fzzzz" >fzzzz!!!</a>
         </div>
 
 	</div>
@@ -27,4 +31,33 @@
     {% endfor %}
     </ul>
 
+{% endblock %}
+
+{% block custom_js %}
+<script type="text/javascript">
+$(function() {
+    $('#user-actions').on('click', 'a', function() {
+        var $this = $(this),
+            url = $this.data('url');
+
+        $.ajax({
+            url: url,
+            cache:false,
+            type: 'GET',
+        })
+        .done(function(response) {
+            $('#messages').removeClass('hidden').addClass('alert-' + response.type);
+            $('#messages > #msg').text(response.msg);
+        })
+        .fail(function(response,txt) {
+            $('#messages').removeClass('hidden').addClass('alert-' + response.responseJSON.type);
+            $('#messages > #msg').text(response.responseJSON.msg);
+        });
+    });
+
+    $('#messages').on('click', '.close', function() {
+        $('#messages').addClass('hidden');
+    });
+})
+</script>
 {% endblock %}

@@ -1,4 +1,5 @@
 composer.json
 composer.phar
-.Ds_Store
+.DS_Store
 vendor/
+bin/
