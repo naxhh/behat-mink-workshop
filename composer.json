@@ -26,8 +26,10 @@
     },
     "require-dev": {
         "behat/behat": "~3.0.6",
-        "behat/mink": "1.5@dev",
-        "behat/mink-extension": "~2.0@dev"
+        "behat/mink": "~2.0@dev",
+        "behat/mink-extension": "~2.0@dev",
+
+        "behat/mink-goutte-driver": "*"
     },
     "config": {
         "bin-dir": "bin/"
