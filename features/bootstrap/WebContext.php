@@ -44,6 +44,6 @@ class WebContext extends MinkContext
      */
     public function iWaitForTheSuggestionBoxToAppear()
     {
-        $this->getSession()->wait(1000, "$('#messages').length > 0");
+        $this->getSession()->wait(1500, "$('#messages').length > 0");
     }
 }

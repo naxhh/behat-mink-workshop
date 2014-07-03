@@ -3,6 +3,11 @@ default:
     web:
       paths: [ %paths.base%/features/web ]
       contexts: [ WebContext ]
+      filters:
+        tags: ~@javascript
+    web_all:
+      paths: [ %paths.base%/features/web ]
+      contexts: [ WebContext ]
     api:
       paths: [ %paths.base%/features/api ]
       contexts:
