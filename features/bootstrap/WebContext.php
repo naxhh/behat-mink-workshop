@@ -38,4 +38,12 @@ class WebContext extends MinkContext
 
         $element = $page->pressButton('login');
     }
+
+    /**
+     * @Then /^I wait for the warning box to appear$/
+     */
+    public function iWaitForTheSuggestionBoxToAppear()
+    {
+        $this->getSession()->wait(1000, "$('#messages').length > 0");
+    }
 }

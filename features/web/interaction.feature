@@ -3,6 +3,7 @@ Feature: Interaction between kitties
   As a cat
   I want to be able to interact with cool kitties
 
+@javascript
 Scenario: Send a hi! to other kitty
   Given I am logged in
   And I am on "/kitty/bigNails"

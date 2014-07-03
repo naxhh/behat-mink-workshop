@@ -14,3 +14,5 @@ default:
       sessions:
         default:
           goutte: ~
+        javascript_session:
+          selenium2: ~
