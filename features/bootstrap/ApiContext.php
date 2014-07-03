@@ -11,7 +11,7 @@ require_once __DIR__.'/../../vendor/phpunit/phpunit/PHPUnit/Framework/Assert/Fun
 /**
  * Behat context class.
  */
-class FeatureContext implements SnippetAcceptingContext
+class ApiContext implements SnippetAcceptingContext
 {
     /**
      * Initializes context.

@@ -1,6 +1,10 @@
 default:
   suites:
-    default:
+    web:
+      paths: [ %paths.base%/features/web ]
+      contexts: [ WebContext ]
+    api:
+      paths: [ %paths.base%/features/api ]
       contexts:
-        - FeatureContext:
+        - ApiContext:
           - 'http://192.168.1.145:8080/api'
