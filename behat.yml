@@ -1,14 +1,6 @@
 default:
-  extensions:
-    Behat\MinkExtension:
-      base_url:  'http://192.168.1.129:8080'
-      sessions:
-        default:
-          goutte: ~
   suites:
-    api_features:
-      paths: [ %paths.base%/features/api ]
-      contexts: [ ApiContext ]
-    web_features:
-      paths: [ %paths.base%/features/web ]
-      contexts: [ WebContext ]
+    default:
+      contexts:
+        - FeatureContext:
+          - 'http://192.168.1.145:8080/api'

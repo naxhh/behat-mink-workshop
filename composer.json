@@ -25,8 +25,11 @@
         "doctrine/dbal": "2.2.*"
     },
     "require-dev": {
-        "behat/behat": "~3.0.6",
-        "behat/mink": "~2.0@dev",
+        "behat/behat": "~3.0.4@dev",
+        "guzzlehttp/guzzle": "~4.0",
+        "phpunit/phpunit": "3.7.*",
+
+        "behat/mink": "1.5@dev",
         "behat/mink-extension": "~2.0@dev",
 
         "behat/mink-goutte-driver": "*"
