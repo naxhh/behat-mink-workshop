@@ -32,11 +32,21 @@ class FeatureContext implements SnippetAcceptingContext
     {
         $method = strtolower($raw_method);
 
-        $this->resource = $this->client->{$method}(
-            $this->base_url . $resource
-        );
+        try {
+            $this->resource = $this->client->{$method}(
+                $this->base_url . $resource
+            );
 
-        $this->scope = $this->result = $this->resource->json();
+            $this->scope = $this->result = $this->resource->json();
+
+        } catch (GuzzleHttp\Exception\ClientException $e) {
+            $this->error_code = $e->getCode();
+            # super cute...
+            if ( $e->getCode() != '404' )
+            {
+                throw $e;
+            }
+        }
     }
 
     /**
@@ -44,7 +54,7 @@ class FeatureContext implements SnippetAcceptingContext
      */
     public function iGetAResponse($expected_code)
     {
-        $code = $this->resource->getStatusCode();
+        $code = isset($this->error_code) ? $this->error_code : $this->resource->getStatusCode();
 
         assertEquals($expected_code, $code);
     }
@@ -79,6 +89,7 @@ class FeatureContext implements SnippetAcceptingContext
 
     /**
      * @Then :property should be a :type
+     * @Then :property should be an :type
      */
     public function propertyShouldBeA($property, $type)
     {
@@ -86,7 +97,7 @@ class FeatureContext implements SnippetAcceptingContext
 
         $types_map = array(
             'list' => 'array',
-            'map' => 'array',
+            'object' => 'array',
         );
 
         $type = array_key_exists($type, $types_map) ? $types_map[$type] : $type;
