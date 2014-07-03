@@ -22,7 +22,7 @@
     {% for kitty in kitties %}
         <div class="col-md-4">
             <h2>
-                <a href="/kitty/{{ kitty.name }}">{{ kitty.name }}</a>
+                <a title="{{ kitty.name }} profile" href="/kitty/{{ kitty.name }}">{{ kitty.name }}</a>
             </h2>
             <p>
                 <img src="{{ kitty.img }}" width="150px" />
